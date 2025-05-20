@@ -53,7 +53,7 @@ export const GridViewLayout: React.FC<Props> = ({ items, renderItem }) => {
               style={[
                 styles.itemContainer,
                 {
-                  width: itemWidth,
+                  width: "100%",
                   height: itemHeight,
                   margin: 4,
                 },
@@ -79,10 +79,12 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 4,
     justifyContent: 'center',
+    flexDirection: 'row',
   },
   itemContainer: {
     overflow: 'hidden',
     borderRadius: 8,
     backgroundColor: 'transparent',
+    aspectRatio: 16 / 9,
   }
 });

@@ -24,6 +24,7 @@ import { PeerRemote } from '../../components/media/peer-remote';
 import { peerPinnedAtom } from '../../jotai/peer';
 import { RoomStore } from '../../stores/room';
 import { GridViewLayout, SidebarViewLayout } from './components';
+import { CameraToggleV2, MicrophoneToggleV2 } from '../../components/media';
 
 type Props = {
 
@@ -101,26 +102,18 @@ export const Meeting: React.FC<Props> = ({ }) => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" />
-      <TouchableOpacity
-        activeOpacity={1}
-        style={styles.touchArea}
-        onPress={() => { }}
-      >
-
-        {/* Main content */}
-        <View style={styles.content}>
-          {!checkPeerPinned?.check ? (
-            <GridViewLayout items={[mainPeerScreen, ...(peerRemoteMixerAudio || [])]} />
-          ) : (
-            <SidebarViewLayout
-              showButtonExpand={controlsVisible}
-              mainPeerScreen={mainPeerScreen}
-              remotePeerScreens={[...(peerRemoteMixerAudio || [])]}
-            />
-          )}
-          <AudioMixerPlayer />
+      <View style={styles.content}>
+        <GridViewLayout items={[mainPeerScreen, ...(peerRemoteMixerAudio || [])]} />
+        <AudioMixerPlayer />
+        <View style={{
+          flexDirection: 'row',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+          <MicrophoneToggleV2 sourceName={'audio_main'} />
+          <CameraToggleV2 sourceName={'video_main'} />
         </View>
-      </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 };
