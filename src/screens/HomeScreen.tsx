@@ -14,7 +14,7 @@ const HomeScreen = () => {
 
     const [isLoading, setIsLoading] = useState(true);
     const [cfg, setCfg] = useState({
-        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDc3MzI1NzYsImV4cCI6MTc0NzczOTc3NiwibmJmIjoxNzQ3NzMyNTc2LCJpc3MiOiJ3ZWJydGMiLCJyb29tIjoiOGR0bDE1ZHMiLCJwZWVyIjoidGVzdF9wZWVyIiwicmVjb3JkIjpmYWxzZSwiZXh0cmFfZGF0YSI6bnVsbH0.oT_iltzZoLGLdVU-U5a4o7dGXgVJlBY7mL1gzkGpoKA",
+        token: "",
         join: {
             room: room,
             peer: peer,
